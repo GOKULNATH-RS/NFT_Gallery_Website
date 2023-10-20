@@ -3,7 +3,7 @@ import EyeIcon from '../assets/icons/iconEye'
 
 const NftCards = ({imgUrl,token,tokenId,views,price,collection,collectionLogoUrl}) => {
   return (
-    <div className='h-[330px] w-[250px]  rounded-[12px] p-1 shadow-primary bg-Secondary hover:shadow-tertiary hover:scale-[1.005] border-[1px] border-Primary border-opacity-[0.05]' >
+    <div className='h-[330px] w-[250px]  rounded-[12px] p-1 shadow-primary bg-Secondary hover:shadow-tertiary hover:scale-[1.005] border-[1px] border-Primary border-opacity-[0.05] duration-200' >
       <div className='h-[70%] w-full'>
         <img  className="h-full w-full rounded-[10px]" src={imgUrl} alt={tokenId} />
       </div>

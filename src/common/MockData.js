@@ -469,7 +469,7 @@ export const data=[
 
 ]
 
-export const collections = [
+export const NFTcollections = [
 
     {
         cid: 1,
