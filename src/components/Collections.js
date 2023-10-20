@@ -32,10 +32,11 @@ const Collections = () => {
             className='p-1 px-3 lg:p-2 lg:px-4 bg-transparent border-[1px] border-Primary border-opacity-[0.1] rounded-lg' 
             placeholder='Search Collections'
             onChange={handleSearchInput}
+            name='Search Collections'
           ></input>
           <button
             onClick={FilterCollections}
-           className='p-1 px-3 rounded-lg border-[1px] border-transparent hover:border-Primary hover:border-opacity-[0.15]'>Search</button>
+           className='p-2 px-3 rounded-lg border-[1px] border-transparent hover:border-Primary hover:border-opacity-[0.15]'>Search</button>
         </div>
       </div>
       <div className='flex gap-4 flex-wrap w-full justify-center' >

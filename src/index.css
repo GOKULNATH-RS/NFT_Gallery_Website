@@ -22,6 +22,12 @@
     @apply flex justify-center items-center;
   }
   .section{
-    @apply p-10 px-20 min-h-[80vh] w-full
+    @apply p-10 px-20 min-h-[80vh] w-full;
+  }
+  .Header{
+    @apply bg-HeaderColor bg-opacity-60 backdrop-blur-xl ;
+  }
+  .Border{
+    @apply border-[1px] border-Primary border-opacity-[0.05];
   }
 }

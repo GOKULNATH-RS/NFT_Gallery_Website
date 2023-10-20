@@ -30,7 +30,7 @@ const NFTs = () => {
         <div className='flex gap-3'>
           <input 
             type='text' 
-            className='p-1 px-3 lg:p-2 lg:px-4 bg-transparent border-[1px] border-Primary border-opacity-[0.1] rounded-lg' 
+            className='p-2 px-3 lg:p-2 lg:px-4 bg-transparent border-[1px] border-Primary border-opacity-[0.1] rounded-lg' 
             placeholder='Search NFTs'
             onChange={handleSearchInput}
             name='Search NFT'

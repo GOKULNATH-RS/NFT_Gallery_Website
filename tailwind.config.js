@@ -20,6 +20,7 @@ module.exports = {
         Primary:"#F3EFE0",
         PrimaryDark:"#03001C",
         Secondary:"#0f1631c8",
+        HeaderColor:"#090e34",
       },
     },
   },

@@ -10,7 +10,7 @@ const NftCards = ({imgUrl,token,tokenId,views,price,collection,collectionLogoUrl
       <div className='h-[30%] w-full p-2 flex flex-col justify-between'>
         <div  className='flex justify-between'>
             <p className='font-bold text-md'>#{tokenId}</p>
-            <p className='flex items-center text-xs gap-[2px]'><EyeIcon/>{views}</p>
+            <p className='flex items-center text-xs gap-[2px]'><EyeIcon color={"white"}/>{views}</p>
         </div>
         <p className='text-lg'>{price} {token}</p>
         <p className="text-xs font-bold flex gap-1 items-center"><img className='h-[15px] w-max rounded-full' src={collectionLogoUrl} alt={tokenId}/>{collection}</p>

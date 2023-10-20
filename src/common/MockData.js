@@ -11,7 +11,7 @@ export const data=[
         views:14588,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
-        
+        cid:1,
         
     },
     {
@@ -23,7 +23,7 @@ export const data=[
         views:1000248,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
-        
+        cid:1,
     },
     {
         id:3,
@@ -34,7 +34,7 @@ export const data=[
         views:100248,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
-        
+        cid:1,
     },
     {
         id:4,
@@ -45,7 +45,7 @@ export const data=[
         views:40158,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
-        
+        cid:1,
     },
     {
         id:5,
@@ -56,7 +56,7 @@ export const data=[
         views:9958,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
-        
+        cid:1,
     },
 
      //phantabear
@@ -70,7 +70,7 @@ export const data=[
         views:1478,
         collection:"Phanta Bear",
         collectionLogoUrl:"https://i.seadn.io/gae/1wTnxFx6paNeV1lv_ht10OFpDucUhg-fL6IZbPrai3Jf_3pHS5dSazhpU_UBn2BVQBUEffYAeoo2iVbCu9LPeUDhmwZwt_7J4xpdrQ?auto=format&dpr=1&w=256",
-
+        cid:2,
     },
     {
         id:7,
@@ -81,7 +81,7 @@ export const data=[
         views:3577,
         collection:"Phanta Bear",
         collectionLogoUrl:"https://i.seadn.io/gae/1wTnxFx6paNeV1lv_ht10OFpDucUhg-fL6IZbPrai3Jf_3pHS5dSazhpU_UBn2BVQBUEffYAeoo2iVbCu9LPeUDhmwZwt_7J4xpdrQ?auto=format&dpr=1&w=256",
-
+        cid:2,
     },
     {
         id:8,
@@ -92,7 +92,7 @@ export const data=[
         views:4002,
         collection:"Phanta Bear",
         collectionLogoUrl:"https://i.seadn.io/gae/1wTnxFx6paNeV1lv_ht10OFpDucUhg-fL6IZbPrai3Jf_3pHS5dSazhpU_UBn2BVQBUEffYAeoo2iVbCu9LPeUDhmwZwt_7J4xpdrQ?auto=format&dpr=1&w=256",
-
+        cid:2,
     },
     {
         id:9,
@@ -103,7 +103,7 @@ export const data=[
         views:4588,
         collection:"Phanta Bear",
         collectionLogoUrl:"https://i.seadn.io/gae/1wTnxFx6paNeV1lv_ht10OFpDucUhg-fL6IZbPrai3Jf_3pHS5dSazhpU_UBn2BVQBUEffYAeoo2iVbCu9LPeUDhmwZwt_7J4xpdrQ?auto=format&dpr=1&w=256",
-
+        cid:2,
     },
     {
         id:10,
@@ -114,7 +114,7 @@ export const data=[
         views:4588,
         collection:"Phanta Bear",
         collectionLogoUrl:"https://i.seadn.io/gae/1wTnxFx6paNeV1lv_ht10OFpDucUhg-fL6IZbPrai3Jf_3pHS5dSazhpU_UBn2BVQBUEffYAeoo2iVbCu9LPeUDhmwZwt_7J4xpdrQ?auto=format&dpr=1&w=256",
-
+        cid:2,
     },
 
 
@@ -128,7 +128,7 @@ export const data=[
         views:954,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:12,
@@ -139,7 +139,7 @@ export const data=[
         views:1548,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:13,
@@ -150,7 +150,7 @@ export const data=[
         views:458,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:14,
@@ -161,7 +161,7 @@ export const data=[
         views:1125,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
    
     {
@@ -173,7 +173,7 @@ export const data=[
         views:4952,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:17,
@@ -184,7 +184,7 @@ export const data=[
         views:5987,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:18,
@@ -195,7 +195,7 @@ export const data=[
         views:3548,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:19,
@@ -206,7 +206,7 @@ export const data=[
         views:1548,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:20,
@@ -217,7 +217,7 @@ export const data=[
         views:3024,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:201,
@@ -228,7 +228,7 @@ export const data=[
         views:4128,
         collection:"CLONE X",
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
+        cid:3,
     },
     {
         id:21,
@@ -239,7 +239,7 @@ export const data=[
         views:1547,
         collection:"Meta-Legends",
         collectionLogoUrl:"https://i.seadn.io/gae/G6oiHHDRJreAXlpneSeaaYM5HVyst2HYd2nQH9Zzw02g8mUfBTSNGl4zlwASuFZl01XbiaXjWX_6rf7l5roJTAaq1o1-EevvOsFFGg?auto=format&dpr=1&w=256",
-
+        cid:4,
     },
     {
         id:22,
@@ -250,7 +250,7 @@ export const data=[
         views:1244,
         collection:"Meta-Legends",
         collectionLogoUrl:"https://i.seadn.io/gae/G6oiHHDRJreAXlpneSeaaYM5HVyst2HYd2nQH9Zzw02g8mUfBTSNGl4zlwASuFZl01XbiaXjWX_6rf7l5roJTAaq1o1-EevvOsFFGg?auto=format&dpr=1&w=256",
-
+        cid:4,
     },
     {
         id:23,
@@ -261,7 +261,7 @@ export const data=[
         views:2541,
         collection:"Meta-Legends",
         collectionLogoUrl:"https://i.seadn.io/gae/G6oiHHDRJreAXlpneSeaaYM5HVyst2HYd2nQH9Zzw02g8mUfBTSNGl4zlwASuFZl01XbiaXjWX_6rf7l5roJTAaq1o1-EevvOsFFGg?auto=format&dpr=1&w=256",
-
+        cid:4,
     },
     {
         id:24,
@@ -272,7 +272,7 @@ export const data=[
         views:1245,
         collection:"Meta-Legends",
         collectionLogoUrl:"https://i.seadn.io/gae/G6oiHHDRJreAXlpneSeaaYM5HVyst2HYd2nQH9Zzw02g8mUfBTSNGl4zlwASuFZl01XbiaXjWX_6rf7l5roJTAaq1o1-EevvOsFFGg?auto=format&dpr=1&w=256",
-
+        cid:4,
     },
     {
         id:25,
@@ -283,7 +283,7 @@ export const data=[
         views:789,
         collection:"Meta-Legends",
         collectionLogoUrl:"https://i.seadn.io/gae/G6oiHHDRJreAXlpneSeaaYM5HVyst2HYd2nQH9Zzw02g8mUfBTSNGl4zlwASuFZl01XbiaXjWX_6rf7l5roJTAaq1o1-EevvOsFFGg?auto=format&dpr=1&w=256",
-
+        cid:4,
     },
     {
         id:26,
@@ -294,7 +294,7 @@ export const data=[
         views:4895,
         collection:"The-Watch",
         collectionLogoUrl:"https://i.seadn.io/gae/OxFPtHkMcpPadPxxb8Kqr4E6fcEo_NoYG48X6heC7ttx8qM2KOAebNhKNm4u6wD9Fgb9JJn_n0vcxEJwfQA8hvrjv4mpmPO5uE77Ww?auto=format&dpr=1&w=1200",
-
+        cid:5,
     },
     {
         id:27,
@@ -305,7 +305,7 @@ export const data=[
         views:4459,
         collection:"The-Watch",
         collectionLogoUrl:"https://i.seadn.io/gae/OxFPtHkMcpPadPxxb8Kqr4E6fcEo_NoYG48X6heC7ttx8qM2KOAebNhKNm4u6wD9Fgb9JJn_n0vcxEJwfQA8hvrjv4mpmPO5uE77Ww?auto=format&dpr=1&w=1200",
-
+        cid:5,
     },
     {
         id:28,
@@ -316,7 +316,7 @@ export const data=[
         views:1689,
         collection:"The-Watch",
         collectionLogoUrl:"https://i.seadn.io/gae/OxFPtHkMcpPadPxxb8Kqr4E6fcEo_NoYG48X6heC7ttx8qM2KOAebNhKNm4u6wD9Fgb9JJn_n0vcxEJwfQA8hvrjv4mpmPO5uE77Ww?auto=format&dpr=1&w=1200",
-
+        cid:5,
     },
     {
         id:29,
@@ -327,7 +327,7 @@ export const data=[
         views:10644,
         collection:"The-Watch",
         collectionLogoUrl:"https://i.seadn.io/gae/OxFPtHkMcpPadPxxb8Kqr4E6fcEo_NoYG48X6heC7ttx8qM2KOAebNhKNm4u6wD9Fgb9JJn_n0vcxEJwfQA8hvrjv4mpmPO5uE77Ww?auto=format&dpr=1&w=1200",
-
+        cid:5,
     },
     {
         id:30,
@@ -338,7 +338,7 @@ export const data=[
         views:6584,
         collection:"The-Watch",
         collectionLogoUrl:"https://i.seadn.io/gae/OxFPtHkMcpPadPxxb8Kqr4E6fcEo_NoYG48X6heC7ttx8qM2KOAebNhKNm4u6wD9Fgb9JJn_n0vcxEJwfQA8hvrjv4mpmPO5uE77Ww?auto=format&dpr=1&w=1200",
-
+        cid:5,
     },
     {
         id:31,
@@ -349,7 +349,7 @@ export const data=[
         views:8492,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:32,
@@ -360,7 +360,7 @@ export const data=[
         views:4125,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:33,
@@ -371,7 +371,7 @@ export const data=[
         views:6958,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:34,
@@ -382,7 +382,7 @@ export const data=[
         views:5154,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:35,
@@ -393,7 +393,7 @@ export const data=[
         views:1354,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:36,
@@ -404,7 +404,7 @@ export const data=[
         views:6154,
         collection:"InfiniGods - The Elder Gods",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/d84df649a0f9e8cc2007ec2484ac494f.jpg?auto=format&dpr=1&w=256",
-
+        cid:6,
     },
     {
         id:37,
@@ -415,7 +415,7 @@ export const data=[
         views:5478,
         collection:"LoudPunx",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/ad9b7cdca7bb0956644ae1ef3832ad8f.png?auto=format&dpr=1&w=256",
-
+        cid:7,
     },
     {
         id:38,
@@ -426,7 +426,7 @@ export const data=[
         views:1564,
         collection:"LoudPunx",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/ad9b7cdca7bb0956644ae1ef3832ad8f.png?auto=format&dpr=1&w=256",
-
+        cid:7,
     },
     {
         id:39,
@@ -437,7 +437,7 @@ export const data=[
         views:1478,
         collection:"LoudPunx",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/ad9b7cdca7bb0956644ae1ef3832ad8f.png?auto=format&dpr=1&w=256",
-
+        cid:7,
     },
     {
         id:40,
@@ -448,8 +448,8 @@ export const data=[
         views:3478,
         collection:"LoudPunx",
         collectionLogoUrl:"https://i.seadn.io/gcs/files/ad9b7cdca7bb0956644ae1ef3832ad8f.png?auto=format&dpr=1&w=256",
-
-    },
+        cid:7,
+    },      
     
 
     
@@ -466,7 +466,7 @@ export const NFTcollections = [
         name:"Bored Ape Yacht Club",
         chain:"Ethereum",
         collectionLogoUrl:"https://i.seadn.io/gae/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB?auto=format&dpr=1&w=256",
-        collectionBannerUrl:"https://i.seadn.io/gae/PjfRHGbEICydusUW1ubKBWWSyOAiIDcCpuO3MyORv4qwzZNy3MQVkQRWbc_bP3uCHTGuf3cpsIIXrXf6v-FThfuOIUu0i61kp2_r14Q?auto=format&dpr=1&w=1920",
+        collectionBannerUrl:"https://i.seadn.io/gae/i5dYZRkVCUK97bfprQ3WXyrT9BnLSZtVKGJlKQ919uaUB0sxbngVCioaiyu9r6snqfi2aaTyIvv6DHm4m2R3y7hMajbsv14pSZK8mhs?auto=format&dpr=1&w=1080",
         collectionjoined:"April 2021",
         category : "PFPs",
         items:9998,

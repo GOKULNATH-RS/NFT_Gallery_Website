@@ -10,6 +10,7 @@ import NFTs from './components/NFTs';
 import Collections from './components/Collections';
 import CollectionsInfo from './components/CollectionsInfo';
 import NftInfo from './components/NftInfo';
+import Error404 from './components/Error404';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -18,32 +19,40 @@ const appRouter = createBrowserRouter([
   {
     path:"/",
     element:<App />,
+    errorElement:<Error404/>,
     children:[
       {
         path:"/",
-        element:<NFTs />
+        element:<NFTs />,
+        errorElement:<Error404/>,
       },
       {
         path:"/collections",
-        element:<Collections />
+        element:<Collections />,
+        errorElement:<Error404/>,
+        
       },
       {
         path:"/about",
-        element:<About />
+        element:<About />,
+        errorElement:<Error404/>,
       },
       {
         path:"/contact",
-        element:<Contact />
+        element:<Contact />,
+        errorElement:<Error404/>,
       },
     ]
   },
   {
-    path:"/nfts/:id",
-    element:<NftInfo />
+    path:"/nfts/:Nid",
+    element:<NftInfo />,
+    errorElement:<Error404/>,
   },
   {
     path:"/collections/:cid",
-    element:<CollectionsInfo />
+    element:<CollectionsInfo />,
+    errorElement:<Error404/>,
   }
   
 ])

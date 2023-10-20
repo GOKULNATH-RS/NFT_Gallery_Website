@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <nav className=' w-full shadow-secondary h-20 bg-[#090e34] bg-opacity-60 backdrop-blur-xl flex justify-between items-center gap-4 px-8 sticky top-0 z-50'>
+    <nav className=' w-full shadow-secondary h-20 Header flex justify-between items-center gap-4 px-8 sticky top-0 z-50'>
       <div className='text-white'>
         Logo
       </div>
