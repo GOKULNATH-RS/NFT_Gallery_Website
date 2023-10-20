@@ -27,7 +27,7 @@ const NftInfo = () => {
           <button><img className="h-10 lg:h-12 w-10 lg:w-12 rounded-full bg-center border-2 border-emerald-500" src="https://i.pinimg.com/564x/d7/f3/2e/d7f32e6c302205c45f082e6de141ef00.jpg" alt='profile'/></button>
         </nav>
 
-      <div className='flex max-md:flex-col p-10'>
+      <div className='flex max-lg:flex-col p-10'>
             <div className='p-2 flex-1 '>
               <img className='w-full h-full rounded-xl' src={imgUrl} alt={tokenId} />
             </div>

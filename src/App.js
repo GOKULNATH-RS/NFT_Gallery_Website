@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <div className="bg-PrimaryDark  text-Primary absolute w-full">
+    <div className="bg-PrimaryDark  text-Primary absolute w-full overflow-x-hidden">
 
       <Header />
       <Outlet />

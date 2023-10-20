@@ -25,7 +25,7 @@ const CollectionsInfo = () => {
 
   
   return (
-    <div className='bg-PrimaryDark text-Primary min-h-screen'>
+    <div className='bg-PrimaryDark text-Primary min-h-screen w-full'>
 
 
       <nav className='h-20 px-8  w-full Header  flex justify-between items-center sticky top-0 z-10'>
@@ -34,33 +34,44 @@ const CollectionsInfo = () => {
       </nav>
 
 
-      <div className='h-[40vh] w-full overflow-hidden flex flex-col justify-center'>
+      <div className='h-[40vh] max-sm:h-[20vh] w-full overflow-hidden flex flex-col justify-center'>
         <img src={collectionBannerUrl} alt={name}/>
       </div>
 
 
-      <div className='flex items-center gap-20'>
-        <img className='h-40 bg-black rounded-lg relative top-[-50px] left-10' src={collectionLogoUrl} alt={Collections[0].name}/>
+      <div className='flex max-sm:flex-col items-center gap-20 max-sm:gap-5'>
+        <img className='h-40 bg-black rounded-lg relative top-[-50px] left-10 max-sm:left-0' src={collectionLogoUrl} alt={Collections[0].name}/>
         <h1 className='text-4xl lg:text-5xl font-bold text-center'>{name}</h1>
       </div>
-      <div className='flex w-full justify-around'>
+      <div className='flex w-full max-sm:flex-col justify-around max-sm:justify-center max-sm:px-20 max-sm:py-5'>
 
-        <div className='flex gap-3 items-center'>
-          <div className='font-bold text-xl'>Joined</div>
-          <div>{collectionjoined}</div>
-        </div>
-        <div className='flex gap-3 items-center'>
-          <div className='font-bold text-xl'>Items</div>
-          <div>{items}</div>
-        </div>
-        <div className='flex gap-3 items-center'>
-          <div className='font-bold text-xl'>Chain</div>
-          <div>{chain}</div>
-        </div>
-        <div className='flex gap-3 items-center'>
-          <div className='font-bold text-xl'>Category</div>
-          <div>{category}</div>
-        </div>
+      {[
+        {
+          title:"Joined",
+          value:collectionjoined,
+        },
+        {
+          title:"Items",
+          value:items,
+        },
+        {
+          title:"Chain",
+          value:chain,
+        },
+        {
+          title:"Category",
+          value:category,
+        },
+      ]
+      .map((item)=>{
+        return(
+          <div className='flex gap-3 items-center max-sm:py-5'>
+            <div className='font-bold text-xl'>{item.title}</div>
+            <div>{item.value}</div>
+          </div>
+        )
+      })}
+
       </div>
 
       <div className='w-full p-10 flex flex-col gap-5'>

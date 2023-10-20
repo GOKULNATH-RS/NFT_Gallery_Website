@@ -24,7 +24,7 @@ const Collections = () => {
     <section className='section'>
       
     <div className='flex flex-col gap-8 lg:gap-10 '>
-      <div className='flex justify-between items-center'>
+      <div className='flex justify-between items-center  max-sm:flex-col gap-5'>
         <h2 className='font-bold lg:text-5xl text-4xl'>Collections </h2>
         <div className='flex gap-3'>
           <input 
