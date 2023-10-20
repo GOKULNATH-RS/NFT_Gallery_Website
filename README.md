@@ -2,5 +2,5 @@
 
 #### MERN Stack Application 
 
-``Search Function```
-```Routing```
+`Search Function`<br>
+`Routing`
