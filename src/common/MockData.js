@@ -16,7 +16,7 @@ export const data=[
     },
     {
         id:2,
-        tokenId:7684,
+        tokenId:7484,
         imgUrl:"https://i.seadn.io/gae/u-2FnHbaJ3U_KCDlmg2McX9Yfo7brsAzOffqihNXCGkHljA89SPPzwdjQiVSWcsvxCoj_ydBcDNCuZvHEekaYekaMEH4XX32k9US?auto=format&dpr=1&w=1000",
         price: 22.0485,
         token:"ETH",
@@ -163,17 +163,7 @@ export const data=[
         collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
 
     },
-    {
-        id:15,
-        tokenId:4408,
-        imgUrl:"https://i.seadn.io/gcs/files/8407d6eacb5185ea3f62b49f824a6f8b.png?auto=format&dpr=1&w=1000",
-        price: 1.49,
-        token:"ETH",
-        views:1214,
-        collection:"CLONE X",
-        collectionLogoUrl:"https://i.seadn.io/gae/XN0XuD8Uh3jyRWNtPTFeXJg_ht8m5ofDx6aHklOiy4amhFuWUa0JaR6It49AH8tlnYS386Q0TW_-Lmedn0UET_ko1a3CbJGeu5iHMg?auto=format&dpr=1&w=256",
-
-    },
+   
     {
         id:16,
         tokenId:8600,
