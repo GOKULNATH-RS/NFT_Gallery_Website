@@ -6,8 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import About from './components/About';
 import Contact from './components/Contact';
-import NFTDetails from './components/NFTDetails';
-import CollectionsDetails from './components/CollectionsDetails';
+import NFTs from './components/NFTs';
+import Collections from './components/Collections';
+import CollectionsInfo from './components/CollectionsInfo';
+import NftInfo from './components/NftInfo';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,15 +21,11 @@ const appRouter = createBrowserRouter([
     children:[
       {
         path:"/",
-        element:<NFTDetails />
-      },
-      {
-        path:"/nfts",
-        element:<NFTDetails />
+        element:<NFTs />
       },
       {
         path:"/collections",
-        element:<CollectionsDetails />
+        element:<Collections />
       },
       {
         path:"/about",
@@ -39,6 +37,14 @@ const appRouter = createBrowserRouter([
       },
     ]
   },
+  {
+    path:"/nfts/:id",
+    element:<NftInfo />
+  },
+  {
+    path:"/collections/:cid",
+    element:<CollectionsInfo />
+  }
   
 ])
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import { NFTcollections } from '../common/MockData'
 import CollectionsCard from './CollectionsCard'
+import { Link } from 'react-router-dom'
 
-const CollectionsDetails = () => {
+const Collections = () => {
   return (
     <section className='section'>
       
@@ -13,7 +14,9 @@ const CollectionsDetails = () => {
         {
          NFTcollections.map((item) =>{
            return (
-             <CollectionsCard LogoUrl={item.collectionLogoUrl} name={item.name} {...item}/>
+            <Link to={`/collections/${item.cid}`} key={item.cid}>
+                <CollectionsCard LogoUrl={item.collectionLogoUrl} name={item.name} {...item}/>
+            </Link>
            )
          })
         }
@@ -23,4 +26,4 @@ const CollectionsDetails = () => {
   )
 }
 
-export default CollectionsDetails
+export default Collections

@@ -1,8 +1,9 @@
 import React from 'react'
 import { data } from '../common/MockData'
 import NftCards from './NftCards'
+import { Link } from 'react-router-dom'
 
-const NFTDetails = () => {
+const NFTs = () => {
   return (
     <section className='p-10 px-20 min-h-[80vh] w-full'>
       
@@ -11,12 +12,15 @@ const NFTDetails = () => {
 
       <div className='flex gap-4 flex-wrap w-full justify-center' >
         {data.map((item)=>{
-          return <NftCards key={item.id} {...item} />
-        })}
+          return (
+            <Link to={`nfts/${item.id}`} key={item.id}>
+              <NftCards key={item.id} {...item} />
+            </Link>
+        )})}
       </div>
     </div>
     </section>
   )
 }
 
-export default NFTDetails
+export default NFTs

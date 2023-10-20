@@ -164,7 +164,7 @@ export const data=[
 
     },
     {
-        id:14,
+        id:15,
         tokenId:4408,
         imgUrl:"https://i.seadn.io/gcs/files/8407d6eacb5185ea3f62b49f824a6f8b.png?auto=format&dpr=1&w=1000",
         price: 1.49,
@@ -175,7 +175,7 @@ export const data=[
 
     },
     {
-        id:15,
+        id:16,
         tokenId:8600,
         imgUrl:"https://i.seadn.io/gcs/files/63ca127c45726088c94434995395999e.png?auto=format&dpr=1&w=1080",
         price: 100,
@@ -186,7 +186,7 @@ export const data=[
 
     },
     {
-        id:16,
+        id:17,
         tokenId:6712,
         imgUrl:"https://i.seadn.io/gcs/files/4113ef92313b273243496a5af372bf2a.png?auto=format&dpr=1&w=1000",
         price: 99,
@@ -197,7 +197,7 @@ export const data=[
 
     },
     {
-        id:17,
+        id:18,
         tokenId:7002,
         imgUrl:"https://i.seadn.io/gcs/files/fc0888da7be8567593946757a0c70967.png?auto=format&dpr=1&w=1000",
         price: 50,
@@ -208,7 +208,7 @@ export const data=[
 
     },
     {
-        id:18,
+        id:19,
         tokenId:15266,
         imgUrl:"https://i.seadn.io/gcs/files/7ca6b06623bbaa2d449247de38a32bd6.png?auto=format&dpr=1&w=1000",
         price: 299,
@@ -219,7 +219,7 @@ export const data=[
 
     },
     {
-        id:19,
+        id:20,
         tokenId:11315,
         imgUrl:"https://i.seadn.io/gcs/files/a930f3a4526dbe0fc90c6d31131cf995.png?auto=format&dpr=1&w=1000",
         price: 222,
@@ -230,7 +230,7 @@ export const data=[
 
     },
     {
-        id:20,
+        id:201,
         tokenId:10080,
         imgUrl:"https://i.seadn.io/gcs/files/9328d2873e3d70e259394643348c4692.png?auto=format&dpr=1&w=1080",
         price: 45,

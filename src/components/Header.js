@@ -9,8 +9,8 @@ const Header = () => {
         Logo
       </div>
       <ul className='flex gap-5 lg:gap-8 max-sm:hidden'>
-        {[{name:"NFTs",url:"/nfts"},{name:"Collections",url:'/collections'},{name:"About",url:'/about'},{name:"Contact",url:"/contact"}].map((item)=>{
-          return <li key={item} className='font text-md lg:text-lg text-white cursor-pointer tracking-wider hover:text-blue-500'><Link to={item.url}>{item.name}</Link></li>
+        {[{name:"NFTs",url:"/"},{name:"Collections",url:'/collections'},{name:"About",url:'/about'},{name:"Contact",url:"/contact"}].map((item)=>{
+          return <li key={item.name} className='font text-md lg:text-lg text-white cursor-pointer tracking-wider hover:text-blue-500'><Link to={item.url}>{item.name}</Link></li>
         }) 
       }
        

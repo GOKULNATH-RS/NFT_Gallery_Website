@@ -1,5 +1,5 @@
 import React from 'react'
-import { NFTcollections } from '../common/MockData'
+
 
 const CollectionsCard = ({LogoUrl,name}) => {
   return (
