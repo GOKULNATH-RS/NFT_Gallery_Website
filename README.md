@@ -3,4 +3,6 @@
 #### MERN Stack Application 
 
 `Search Functionality`<br>
-`Routing`
+`Routing`<br>
+`Mobile Responsive`<br>
+

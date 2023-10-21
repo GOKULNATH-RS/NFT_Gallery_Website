@@ -5,12 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import About from './components/About';
-import Contact from './components/Contact';
+//import Contact from './components/Contact';
 import NFTs from './components/NFTs';
 import Collections from './components/Collections';
 import CollectionsInfo from './components/CollectionsInfo';
 import NftInfo from './components/NftInfo';
 import Error404 from './components/Error404';
+import ContactClass from './components/ContactClass';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -39,7 +40,7 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/contact",
-        element:<Contact />,
+        element:<ContactClass phone={"+91 822488 78954"} mail={"contact@nftsgallery.in"}/>,
         errorElement:<Error404/>,
       },
     ]

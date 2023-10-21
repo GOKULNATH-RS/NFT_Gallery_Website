@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 import React from 'react'
 import { useParams } from 'react-router-dom'
 import { data } from '../common/MockData';
@@ -10,6 +11,7 @@ const NftInfo = () => {
     const {Nid} = useParams();
 
     const FilteredNFTData = data.filter((detail)=>{
+      
       return detail.id == Nid;
     })
 

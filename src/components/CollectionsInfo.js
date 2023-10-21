@@ -10,6 +10,7 @@ const CollectionsInfo = () => {
   const {cid} = useParams();
 
   const Collections = NFTcollections.filter((detail)=>{
+    // eslint-disable-next-line eqeqeq
     return detail.cid == cid;
   })
 

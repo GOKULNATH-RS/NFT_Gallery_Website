@@ -1,5 +1,4 @@
 import React from 'react'
-import Error404Img from '../assets/images/Error404.svg'
 import { useRouteError } from 'react-router-dom'
 
 const Error404 = () => {
