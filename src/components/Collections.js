@@ -2,11 +2,19 @@ import React, { useState } from 'react'
 import { NFTcollections } from '../common/MockData'
 import CollectionsCard from './CollectionsCard'
 import { Link } from 'react-router-dom'
+import Offline from './Offline'
+import useOnline from '../Hooks/useOnline'
 
 const Collections = () => {
 
   const [SearchText,setSearchText] =useState("");
   const [FilteredCollections,setFilteredCollections] = useState(NFTcollections);
+
+   const isOnline = useOnline();
+
+   if(!isOnline){
+      return <Offline />
+    }
 
   function handleSearchInput(e){
       setSearchText(e.target.value);
@@ -19,6 +27,7 @@ const Collections = () => {
 
     setFilteredCollections(FilterCollections);
   }
+
 
   return (
     <section className='section'>

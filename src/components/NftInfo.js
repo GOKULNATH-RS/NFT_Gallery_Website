@@ -5,13 +5,21 @@ import { data } from '../common/MockData';
 import { Link } from 'react-router-dom';
 import IconEye from '../assets/icons/iconEye';
 import NftCards from './NftCards';
+import useOnline from '../Hooks/useOnline';
+import Offline from './Offline';
+
 
 const NftInfo = () => {
 
-    const {Nid} = useParams();
+  const {Nid} = useParams();
+    const isOnline = useOnline();
+
+    if(!isOnline){
+      return <Offline />
+    }
+
 
     const FilteredNFTData = data.filter((detail)=>{
-      
       return detail.id == Nid;
     })
 

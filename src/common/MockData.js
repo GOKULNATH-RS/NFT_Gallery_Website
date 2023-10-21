@@ -31,7 +31,7 @@ export const data=[
         imgUrl:"https://i.seadn.io/gae/ulTNkL1s8SxAEkwH4pxkHxMYh2r5HJeBRcURychonbbelmY7Yg1mFkJUS_toAPVTTBGqDtuc1dq5ZwsJv9fUQ0h12f5M919x10wmaUU?auto=format&dpr=1&w=1000",
         price: 153,
         token:"ETH",
-        views:100248,
+        views:140248,
         collection:"Bored Ape Yacht Club",
         collectionLogoUrl:"https://i.seadn.io/gae/QVKs1azRCjHftLYaPMFlMPa29ECEsqLGzMckQKrzttoVAFRwJTZ11fOW68smiO_QNsCECvyqaJyqYVNwd3Gz_TZCQJ5FyLapAT9qJg0?auto=format&dpr=1&w=1920",
         cid:1,

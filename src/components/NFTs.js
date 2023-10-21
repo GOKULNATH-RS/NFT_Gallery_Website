@@ -2,12 +2,23 @@ import React, { useState } from 'react'
 import { data } from '../common/MockData'
 import NftCards from './NftCards'
 import { Link } from 'react-router-dom'
+import Shimmer from './Shimmer'
+import useOnline from '../Hooks/useOnline'
+import Offline from './Offline'
+import MostViewedNFTs from './MostViewedNFTs'
+import PriceLowToHigh from './PriceLowToHigh'
 
 const NFTs = () => {
 
  const [SearchText , setSearchText] = useState("");
  const [FilteredNFTs,setFilteredNFTs] = useState(data);
 
+
+ const isOnline = useOnline();
+
+    if(!isOnline){
+      return <Offline />
+    }
 
   function handleSearchInput(e){
     setSearchText(e.target.value);
@@ -19,7 +30,13 @@ const NFTs = () => {
     });
     setFilteredNFTs(FilterNFTdata);
   }
-  
+
+  function filterMostViewedNFTs(MostViewedNFTs){
+    setFilteredNFTs(MostViewedNFTs);
+  }
+  function sortPriceLowToHigh(PriceLowToHighNFTs){
+    setFilteredNFTs(PriceLowToHighNFTs);
+  }
 
   return (
     <section className='p-10 px-20 min-h-[80vh] w-full'>
@@ -40,9 +57,14 @@ const NFTs = () => {
            className='p-1 px-3 rounded-lg border-[1px] border-transparent hover:border-Primary hover:border-opacity-[0.15]'>Search</button>
         </div>
       </div>
+      <div className='flex gap-3'>
+        <MostViewedNFTs onFilter={filterMostViewedNFTs} NFTs={FilteredNFTs}/>
+        {/* <PriceLowToHigh onSort={sortPriceLowToHigh} NFTs={FilteredNFTs}/> */}
+
+      </div>
 
       <div className='flex gap-4 flex-wrap w-full justify-center' >
-        {FilteredNFTs.map((item)=>{
+        {false ? <Shimmer />  : FilteredNFTs.map((item)=>{
           return (
             <Link to={`nfts/${item.id}`} key={item.id}>
               <NftCards key={item.id} {...item} />
