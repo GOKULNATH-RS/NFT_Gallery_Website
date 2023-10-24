@@ -12,7 +12,7 @@ const MostViewedNFTs = (props) => {
     }
 
   return (
-    <button onClick={filterMostViewedNFTs} className='border-[1px] border-Primary border-opacity-[0.15] h-15 w-max px-6 p-2 rounded-full hover:border-Primary hover:border-opacity-[0.45]'>
+    <button onClick={filterMostViewedNFTs} className='border-[1px] border-Primary border-opacity-[0.15] h-15 max-sm:h-10 w-max px-6 p-2 rounded-full hover:border-Primary hover:border-opacity-[0.45]'>
       <p className="text-sm">Most Viewed</p>
     </button>
   )

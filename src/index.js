@@ -1,20 +1,26 @@
-import React from 'react';
+import React , {lazy,Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
-import About from './components/About';
-//import Contact from './components/Contact';
 import NFTs from './components/NFTs';
-import Collections from './components/Collections';
 import CollectionsInfo from './components/CollectionsInfo';
 import NftInfo from './components/NftInfo';
 import Error404 from './components/Error404';
 import ContactClass from './components/ContactClass';
+import Saved from './components/Saved';
+import Loading from './components/Loading';
+import { Provider } from 'react-redux';
+import appStore from './redux/appStore';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const About = lazy(() => import('./components/About'));
+const Collections = lazy(() => import('./components/Collections'));
+
 
 const appRouter = createBrowserRouter([
   {
@@ -29,18 +35,31 @@ const appRouter = createBrowserRouter([
       },
       {
         path:"/collections",
-        element:<Collections />,
+        element:(
+      <Suspense fallback={<Loading />}>
+        <Collections />
+      </Suspense>
+        ),
         errorElement:<Error404/>,
         
       },
       {
         path:"/about",
-        element:<About />,
+        element:(
+          <Suspense fallback={<Loading />}>
+        <About />
+      </Suspense>
+        ),
         errorElement:<Error404/>,
       },
       {
         path:"/contact",
         element:<ContactClass phone={"+91 822488 78954"} mail={"contact@nftsgallery.in"}/>,
+        errorElement:<Error404/>,
+      },
+      {
+        path:"/saved",
+        element:<Saved />,
         errorElement:<Error404/>,
       },
     ]
@@ -59,10 +78,22 @@ const appRouter = createBrowserRouter([
 ])
 
 root.render(
-  <RouterProvider router={appRouter}></RouterProvider>
+  <Provider store={appStore}>
+    <RouterProvider router={appRouter}></RouterProvider>
+
+  </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+
+
+
+
+/** //TODO Doubts
+ * -Cart Updating While onClick NFTcard
+ * -Price Low To High Sorting
+ */

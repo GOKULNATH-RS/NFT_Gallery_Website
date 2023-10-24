@@ -1,10 +1,11 @@
 import React from 'react'
 
-const iconBookmark = () => {
+const iconBookmark = ({fill}) => {
   return (
-   <svg xmlns="http://www.w3.org/2000/svg" height="25px" fill="white" className="bi bi-bookmark-fill" viewBox="0 0 16 16">
-  <path d="M2 2v13.5a.5.5 0 0 0 .74.439L8 13.069l5.26 2.87A.5.5 0 0 0 14 15.5V2a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2z"/>
-</svg>  )
+   <svg xmlns="http://www.w3.org/2000/svg" fill={(fill)?"rgb(56 189 248)":"none"} viewBox="0 0 24 24" strokeWidth={1.5} stroke={fill ? "rgb(56 189 248)":"white"} className="w-8 h-8">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z" />
+  </svg>
+ )
 }
 
 export default iconBookmark

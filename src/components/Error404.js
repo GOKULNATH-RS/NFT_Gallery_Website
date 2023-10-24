@@ -9,7 +9,7 @@ const Error404 = () => {
   return (
     <div className='flex-cent`er flex-col gap-10 h-screen w-screen bg-PrimaryDark'>
       <p className='text-Primary text-4xl font-bold'>{err.status}</p>
-      <p className='text-Primary text-4xl'>{err.error.message}</p>
+      <p className='text-Primary text-4xl'>{err?.error?.message}</p>
     </div>
   )
 }

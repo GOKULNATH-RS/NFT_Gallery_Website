@@ -7,12 +7,24 @@ import IconEye from '../assets/icons/iconEye';
 import NftCards from './NftCards';
 import useOnline from '../Hooks/useOnline';
 import Offline from './Offline';
+import { useDispatch } from 'react-redux';
+import { addToSaved  } from '../redux/SavedSlice';
+import IconBookmark from '../assets/icons/iconBookmark';
 
 
 const NftInfo = () => {
 
   const {Nid} = useParams();
     const isOnline = useOnline();
+
+
+    // const SavedItems = useSelector((state) => state.saved.items);
+    const dispatch = useDispatch();
+
+    function handleAddToSaved(item){
+      dispatch(addToSaved(item));
+    }
+
 
     if(!isOnline){
       return <Offline />
@@ -29,12 +41,27 @@ const NftInfo = () => {
     return detail.collection.toLowerCase().includes(collection.toLowerCase()) &&( detail.id != id);
   })
 
+
   return (
     <div className='bg-PrimaryDark w-full min-h-screen'>
 
         <nav className='h-20 px-8 Header flex justify-between items-center sticky top-0 z-10'>
           <Link to="/" className='text-white' >Back</Link>  
-          <button><img className="h-10 lg:h-12 w-10 lg:w-12 rounded-full bg-center border-2 border-emerald-500" src="https://i.pinimg.com/564x/d7/f3/2e/d7f32e6c302205c45f082e6de141ef00.jpg" alt='profile'/></button>
+          <div className=' flex gap-2 items-center'>
+          {/* <button className='flex w-6 h-10 relative justify-center items-center'>
+                  <IconBookmark />
+                  <span className='h-3 lg:h-4 w-3 lg:w-4 bg-blue-700 duration-100 rounded-[100%] p-[2px] text-[10px] text-white flex justify-center items-center absolute top-1 lg:top-0 right-0 font-bold'>{SavedItems.length}</span>
+            </button> 
+          */}
+          <Link to="/" className='flex w-max h-8 relative justify-center items-center'>
+            <IconBookmark  fill={false}/>
+            <span className={`h-3 lg:h-4 w-3 lg:w-4 ${!(/*SavedItems.length*/ false)? "text-blue-400" : "text-PrimaryDark"}   duration-100 rounded-[100%] p-[2px]  text-[12px]  flex justify-center items-center absolute lg:top-[7px] top-[9px] font-bold`}>{/*SavedItems.length*/}0</span>
+
+          </Link>
+            <button>
+              <img className={`h-10 lg:h-12 w-10 lg:w-12 rounded-full bg-center border-2 ${isOnline? "border-emerald-500":"border-red-600"}`} src="https://i.pinimg.com/564x/d7/f3/2e/d7f32e6c302205c45f082e6de141ef00.jpg" alt='profile'/>
+            </button>          
+          </div>
         </nav>
 
       <div className='flex max-lg:flex-col p-10'>
@@ -74,7 +101,8 @@ const NftInfo = () => {
                     See Collection
                   </Link>
                   <button
-                  className='Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor'
+                    className='Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor'
+                    onClick={handleAddToSaved(FilteredNFTData[0])}
                   >
                     Save
                   </button>

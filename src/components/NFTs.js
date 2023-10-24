@@ -29,17 +29,21 @@ const NFTs = () => {
       return nft.tokenId.toString().includes(SearchText.toString());
     });
     setFilteredNFTs(FilterNFTdata);
+    console.log(FilteredNFTs);
   }
 
   function filterMostViewedNFTs(MostViewedNFTs){
     setFilteredNFTs(MostViewedNFTs);
+    
+
   }
   function sortPriceLowToHigh(PriceLowToHighNFTs){
     setFilteredNFTs(PriceLowToHighNFTs);
+    console.log(FilteredNFTs);
   }
 
   return (
-    <section className='p-10 px-20 min-h-[80vh] w-full'>
+    <section className='p-10 px-20 max-sm:px-12 min-h-[80vh] w-full'>
       
     <div className='flex flex-col gap-8 lg:gap-10 '>
       <div className='flex justify-between items-center max-sm:flex-col gap-5'>
@@ -57,9 +61,9 @@ const NFTs = () => {
            className='p-1 px-3 rounded-lg border-[1px] border-transparent hover:border-Primary hover:border-opacity-[0.15]'>Search</button>
         </div>
       </div>
-      <div className='flex gap-3'>
+      <div className=' w-full flex flex-wrap gap-3'>
         <MostViewedNFTs onFilter={filterMostViewedNFTs} NFTs={FilteredNFTs}/>
-        {/* <PriceLowToHigh onSort={sortPriceLowToHigh} NFTs={FilteredNFTs}/> */}
+        <PriceLowToHigh onSort={sortPriceLowToHigh} NFTs={FilteredNFTs}/>
 
       </div>
 
