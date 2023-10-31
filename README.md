@@ -5,4 +5,5 @@
 `Search Functionality`<br>
 `Routing`<br>
 `Mobile Responsive`<br>
-`Redux`
+`Redux` <br>
+`Started Backend`
