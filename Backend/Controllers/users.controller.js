@@ -1,5 +1,6 @@
 const userModel = require("../Models/users.model");
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
 
 //  REGISTER NEW USER
 exports.register = (req, res) => {
@@ -40,19 +41,33 @@ exports.register = (req, res) => {
 exports.login = (req, res) => {
   const { email, password } = req.body;
 
-  userModel.findOne({ email }).then((data) => {
-    if (!data) {
-      res.send(404).json({ message: "Email not found" });
-    } else {
-      const passwordIsValid = bcrypt.compareSync(password, data.password);
-
-      if (!passwordIsValid) {
-        res.status(401).json({ message: "Invalid password" });
+  userModel
+    .findOne({ email })
+    .then((data) => {
+      if (!data) {
+        res.send(404).json({ message: "Email not found" });
       } else {
-        res.status(200).json({ message: "Login successful" });
+        const passwordIsValid = bcrypt.compareSync(password, data.password);
+
+        if (!passwordIsValid) {
+          res.status(401).json({ message: "Invalid password" });
+        } else {
+          let token = jwt.sign({ id: data._id }, process.env.JWT_SECRET);
+
+          res.send({
+            user: {
+              id: data._id,
+              email: data.email,
+              password: data.password,
+            },
+            accessToken: token,
+          });
+        }
       }
-    }
-  });
+    })
+    .catch((err) => {
+      res.status(500).json({ message: err.message || "Server Error" });
+    });
 };
 
 //  DISPLAY ALL USERS
