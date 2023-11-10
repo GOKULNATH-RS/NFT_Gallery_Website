@@ -13,6 +13,7 @@ import Saved from './components/Saved';
 import Loading from './components/Loading';
 import { Provider } from 'react-redux';
 import appStore from './redux/appStore';
+import Profile from './components/Profile';
 
 
 
@@ -62,6 +63,11 @@ const appRouter = createBrowserRouter([
         element:<Saved />,
         errorElement:<Error404/>,
       },
+       {
+        path:"/profile/:name",
+        element:<Profile />,
+        errorElement:<Error404/>,
+      },
     ]
   },
   {
@@ -73,7 +79,8 @@ const appRouter = createBrowserRouter([
     path:"/collections/:cid",
     element:<CollectionsInfo />,
     errorElement:<Error404/>,
-  }
+  },
+ 
   
 ])
 

@@ -68,7 +68,7 @@ const NFTs = () => {
       </div>
 
       <div className='flex gap-4 flex-wrap w-full justify-center' >
-        {false ? <Shimmer />  : FilteredNFTs.map((item)=>{
+        {(FilteredNFTs.length==0) ? <Shimmer />  : FilteredNFTs.map((item)=>{
           return (
             <Link to={`nfts/${item.id}`} key={item.id}>
               <NftCards key={item.id} {...item} />
