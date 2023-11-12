@@ -31,7 +31,10 @@ const authUser = (req, res, next) => {
     );
   } else {
     res.status(403).json({ message: "Token not present" });
+    next();
   }
+
+  next();
 };
 
 module.exports = authUser;

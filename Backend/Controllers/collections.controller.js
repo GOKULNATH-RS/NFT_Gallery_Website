@@ -1,4 +1,4 @@
-const nftModel = require("../Models/nft.model");
+const collectionsModel = require("../Models/collections.model");
 
 exports.create = (req, res) => {
   const {
@@ -11,7 +11,7 @@ exports.create = (req, res) => {
     items,
   } = req.body;
 
-  const newNFT = new nftModel({
+  const newCollection = new collectionsModel({
     name,
     chain,
     collectionLogoUrl,
@@ -21,7 +21,7 @@ exports.create = (req, res) => {
     items,
   });
 
-  newNFT.save().then((data) => {
+  newCollection.save().then((data) => {
     if (!data) {
       res.status(400).json({ message: "Data not present" });
     }
@@ -30,7 +30,7 @@ exports.create = (req, res) => {
 };
 
 exports.fetch = (req, res) => {
-  nftModel
+  collectionsModel
     .find()
     .then((data) => {
       if (!data) {
@@ -39,18 +39,16 @@ exports.fetch = (req, res) => {
       res.status(200).send(data);
     })
     .catch((err) => {
-      res
-        .send(500)
-        .json({
-          message: err.message || "Some error occured while fetching data",
-        });
+      res.send(500).json({
+        message: err.message || "Some error occured while fetching data",
+      });
     });
 };
 
 exports.updateOne = (req, res) => {
   const _id = req.params.id;
 
-  nftModel
+  collectionsModel
     .findByIdAndUpdate(_id, req.body)
     .then((data) => {
       if (!data) {
@@ -66,7 +64,7 @@ exports.updateOne = (req, res) => {
 exports.deleteOne = (req, res) => {
   const _id = req.params.id;
 
-  nftModel
+  collectionsModel
     .findByIdAndDelete(_id)
     .then((data) => {
       if (!data) {

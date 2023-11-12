@@ -6,6 +6,7 @@ const jwt = require("jsonwebtoken");
 exports.register = (req, res) => {
   const { displayName, userName, email, password } = req.body;
 
+  console.log(req.body);
   const newUser = new userModel({
     displayName,
     userName,
@@ -40,12 +41,12 @@ exports.register = (req, res) => {
 // LOGIN USER
 exports.login = (req, res) => {
   const { email, password } = req.body;
-
+  console.log(req.body);
   userModel
     .findOne({ email })
     .then((data) => {
       if (!data) {
-        res.send(404).json({ message: "Email not found" });
+        res.status(404).json({ message: "Email not found" });
       } else {
         const passwordIsValid = bcrypt.compareSync(password, data.password);
 
