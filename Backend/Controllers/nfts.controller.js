@@ -40,7 +40,24 @@ exports.fetch = (req, res) => {
       if (!data) {
         res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
+    })
+    .catch((err) => {
+      res.status(500).json({
+        message: err.message || "Some error occured while fetching data",
+      });
+    });
+};
+
+exports.fetchOne = (req, res) => {
+  const { _id } = req.params;
+
+  NftsModel.findById(_id)
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({ message: "Data not found" });
+      }
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({

@@ -34,12 +34,12 @@ exports.fetch = (req, res) => {
     .find()
     .then((data) => {
       if (!data) {
-        res.send(404).json({ message: "Data not found" });
+        res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
     })
     .catch((err) => {
-      res.send(500).json({
+      res.status(500).json({
         message: err.message || "Some error occured while fetching data",
       });
     });
@@ -54,11 +54,26 @@ exports.updateOne = (req, res) => {
       if (!data) {
         res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({ message: err.message || "Server Error" });
     });
+};
+
+exports.fetchOne = (req, res) => {
+  const _id = req.params.id;
+
+  try {
+    collectionsModel.findById(_id).then((data) => {
+      if (!data) {
+        res.status(404).json({ message: "Data not found" });
+      }
+      res.send(data);
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
 
 exports.deleteOne = (req, res) => {
@@ -70,7 +85,7 @@ exports.deleteOne = (req, res) => {
       if (!data) {
         res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({ message: err.message || "Server Error" });

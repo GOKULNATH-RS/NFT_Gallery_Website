@@ -7,13 +7,13 @@ import Logo from "../assets/Logo.png";
 
 const Header = () => {
   const isOnline = useOnline();
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const SavedItems = useSelector((state) => state.saved.items);
 
   let CurrentUser = "GOKULNATH RS";
   return (
-    <nav className="w-full shadow-secondary h-20 Header flex justify-between items-center gap-4 px-8 fixed top-00 z-10">
+    <nav className="w-full shadow-secondary h-20 Header flex justify-between items-center gap-4 px-8 fixed top-0 z-10">
       <div className="text-white">
         <img src={Logo} alt="logo" className="h-14 w-max lg:h-16" />
       </div>

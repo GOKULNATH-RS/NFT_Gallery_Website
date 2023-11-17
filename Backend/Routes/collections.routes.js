@@ -5,5 +5,6 @@ module.exports = (app) => {
   app.post("/api/collection/create", nftController.create);
   app.get("/api/collection", nftController.fetch);
   app.put("/api/collection/:id", nftController.updateOne);
+  app.get("/api/collection/:id", nftController.fetchOne);
   app.delete("/api/collection/:id", nftController.deleteOne);
 };

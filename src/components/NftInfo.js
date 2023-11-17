@@ -15,6 +15,7 @@ const NftInfo = () => {
   const { _id } = useParams();
   const isOnline = useOnline();
   const [isLoading, setIsLoading] = useState(true);
+  const [Collections, setCollections] = useState([]);
   const [NftDetails, setNftDetails] = useState([]);
 
   useEffect(() => {
@@ -27,7 +28,21 @@ const NftInfo = () => {
       .catch((err) => {
         console.log("ERROR WHILE FETCHING" || err.message);
       });
-  }, []);
+  }, [_id]);
+
+  try {
+    useEffect(() => {
+      fetch(`http://localhost:5000/api/nft`)
+        .then((res) => res.json())
+        .then((data) => {
+          setCollections(data);
+          setIsLoading(false);
+        })
+        .catch((err) => {
+          console.log("ERROR WHILE FETCHING" || err.message);
+        });
+    }, [NftDetails]);
+  } catch (error) {}
 
   // const SavedItems = useSelector((state) => state.saved.items);
   const dispatch = useDispatch();
@@ -40,8 +55,11 @@ const NftInfo = () => {
     return <Offline />;
   }
 
-  const FilteredNFTData = NftDetails.filter((detail) => {
-    return detail._id == _id;
+  const NftData = Collections.filter((nft) => {
+    return (
+      nft.collectionName === NftDetails.collectionName &&
+      nft._id !== NftDetails._id
+    );
   });
 
   const {
@@ -53,14 +71,6 @@ const NftInfo = () => {
     collectionName,
     collectionLogoUrl,
   } = NftDetails;
-
-  const filteredCollectionNfts = () => {
-    const CollectionNFTs = NftDetails.filter((detail) => {
-      return (
-        detail.collectionName.toLowerCase() === collectionName.toLowerCase()
-      );
-    });
-  };
 
   return (
     <div className="bg-PrimaryDark w-full min-h-screen">
@@ -152,7 +162,7 @@ const NftInfo = () => {
             </Link>
             <button
               className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor"
-              onClick={handleAddToSaved(FilteredNFTData[0])}
+              // onClick={handleAddToSaved(FilteredNFTData[0])}
             >
               Save
             </button>
@@ -163,9 +173,9 @@ const NftInfo = () => {
       <div className="text-Primary w-full p-10 flex flex-col gap-5">
         <p className="font-bold text-4xl">More from Collection</p>
         <div className="flex flex-wrap gap-4 justify-center">
-          {CollectionNFTs.map((item) => {
+          {NftData.map((item) => {
             return (
-              <Link key={item.id} to={`/nfts/${item.id}`}>
+              <Link key={item._id} to={`/nfts/${item._id}`}>
                 <NftCards key={item.id} {...item} />
               </Link>
             );

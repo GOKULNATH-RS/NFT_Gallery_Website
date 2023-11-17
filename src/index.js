@@ -74,12 +74,12 @@ const appRouter = createBrowserRouter([
     ],
   },
   {
-    path: "/nfts/:Nid",
+    path: "/nfts/:_id",
     element: <NftInfo />,
     errorElement: <Error404 />,
   },
   {
-    path: "/collections/:cid",
+    path: "/collections/:id",
     element: <CollectionsInfo />,
     errorElement: <Error404 />,
   },
@@ -107,6 +107,7 @@ root.render(
 reportWebVitals();
 
 /** //TODO Doubts
- * -Cart Updating While onClick NFTcard
- * -Price Low To High Sorting
+ *  - Cart Updating While onClick NFTcard
+ *  - Price Low To High Sorting
+    - Collections fetch controller ===> Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client 
  */

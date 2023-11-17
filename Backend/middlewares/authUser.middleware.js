@@ -4,11 +4,11 @@ const userModel = require("../Models/users.model");
 const authUser = (req, res, next) => {
   if (
     req.headers &&
-    req.headers.auth &&
-    req.headers.auth.split(" ")[0] === "JWT"
+    req.headers.authorization &&
+    req.headers.authorization.split(" ")[0] === "JWT"
   ) {
     jwt.verify(
-      req.headers.auth.split(" ")[1],
+      req.headers.authorization.split(" ")[1],
       process.env.JWT_SECRET,
       function (err, verifyToken) {
         if (err) {
