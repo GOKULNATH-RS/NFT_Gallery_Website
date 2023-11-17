@@ -1,15 +1,15 @@
 /* eslint-disable eqeqeq */
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { data } from "../common/MockData";
 import { Link } from "react-router-dom";
 import IconEye from "../assets/icons/iconEye";
 import NftCards from "./NftCards";
 import useOnline from "../Hooks/useOnline";
 import Offline from "./Offline";
-import { useDispatch } from "react-redux";
-import { addToSaved } from "../redux/SavedSlice";
+// import { useDispatch } from "react-redux";
+// import { addToSaved } from "../redux/SavedSlice";
 import IconBookmark from "../assets/icons/iconBookmark";
+import Loading from "./Loading";
 
 const NftInfo = () => {
   const { _id } = useParams();
@@ -45,11 +45,11 @@ const NftInfo = () => {
   } catch (error) {}
 
   // const SavedItems = useSelector((state) => state.saved.items);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  function handleAddToSaved(item) {
-    dispatch(addToSaved(item));
-  }
+  // function handleAddToSaved(item) {
+  //   dispatch(addToSaved(item));
+  // }
 
   if (!isOnline) {
     return <Offline />;
@@ -111,77 +111,83 @@ const NftInfo = () => {
         </div>
       </nav>
 
-      <div className="flex max-lg:flex-col p-10">
-        <div className="p-2 flex-1 ">
-          <img
-            className="w-full h-full rounded-xl"
-            src={imgUrl}
-            alt={tokenID}
-          />
-        </div>
-
-        {/*Right Section */}
-        <div className="flex-1 flex flex-col gap-6 p-10 text-4xl">
-          <h1 className="text-white font-bold">#{tokenID}</h1>
-
-          <div className="flex gap-4 items-center">
-            <div className="h-14 w-14 rounded-full overflow-hidden flex-center ">
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div>
+          <div className="flex max-lg:flex-col p-10">
+            <div className="p-2 flex-1 ">
               <img
-                src={collectionLogoUrl}
-                className="w-full h-full bg-black"
-                alt={collectionName}
+                className="w-full h-full rounded-xl"
+                src={imgUrl}
+                alt={tokenID}
               />
             </div>
-            <p className="text-xl text-Primary">{collectionName}</p>
+
+            {/*Right Section */}
+            <div className="flex-1 flex flex-col gap-6 p-10 text-4xl">
+              <h1 className="text-white font-bold">#{tokenID}</h1>
+
+              <div className="flex gap-4 items-center">
+                <div className="h-14 w-14 rounded-full overflow-hidden flex-center ">
+                  <img
+                    src={collectionLogoUrl}
+                    className="w-full h-full bg-black"
+                    alt={collectionName}
+                  />
+                </div>
+                <p className="text-xl text-Primary">{collectionName}</p>
+              </div>
+
+              <div className="text-Primary">
+                <p className="text-xs opacity-70 ">Current Price</p>
+                <p className="text-4xl font-bold">
+                  {price} {token}
+                </p>
+                <p className="text-sm opacity-70 ">
+                  $ {(price * 1607.14).toFixed(2)}
+                </p>
+                <p className="text-sm opacity-70">
+                  ₹ {(price * 133592.18).toFixed(2)}
+                </p>
+              </div>
+
+              <div className="flex gap-1 items-center text-sm  text-Primary">
+                <IconEye color={"white"} />
+                <p>{views}</p>
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <Link
+                  to={`/collections/${collectionName}`}
+                  className="Border h-14 py-4 flex-1 text-Primary text-xl rounded-xl bg-HeaderColor flex-center"
+                >
+                  See Collection
+                </Link>
+                <button
+                  className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor"
+                  // onClick={handleAddToSaved(FilteredNFTData[0])}
+                >
+                  Save
+                </button>
+              </div>
+            </div>
           </div>
 
-          <div className="text-Primary">
-            <p className="text-xs opacity-70 ">Current Price</p>
-            <p className="text-4xl font-bold">
-              {price} {token}
-            </p>
-            <p className="text-sm opacity-70 ">
-              $ {(price * 1607.14).toFixed(2)}
-            </p>
-            <p className="text-sm opacity-70">
-              ₹ {(price * 133592.18).toFixed(2)}
-            </p>
-          </div>
-
-          <div className="flex gap-1 items-center text-sm  text-Primary">
-            <IconEye color={"white"} />
-            <p>{views}</p>
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <Link
-              to={`/collections/${collectionName}`}
-              className="Border h-14 py-4 flex-1 text-Primary text-xl rounded-xl bg-HeaderColor flex-center"
-            >
-              See Collection
-            </Link>
-            <button
-              className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor"
-              // onClick={handleAddToSaved(FilteredNFTData[0])}
-            >
-              Save
-            </button>
+          <div className="text-Primary w-full p-10 flex flex-col gap-5">
+            <p className="font-bold text-4xl">More from Collection</p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              {NftData.map((item) => {
+                return (
+                  <Link key={item._id} to={`/nfts/${item._id}`}>
+                    <NftCards key={item.id} {...item} />
+                  </Link>
+                );
+              })}
+            </div>
           </div>
         </div>
-      </div>
-
-      <div className="text-Primary w-full p-10 flex flex-col gap-5">
-        <p className="font-bold text-4xl">More from Collection</p>
-        <div className="flex flex-wrap gap-4 justify-center">
-          {NftData.map((item) => {
-            return (
-              <Link key={item._id} to={`/nfts/${item._id}`}>
-                <NftCards key={item.id} {...item} />
-              </Link>
-            );
-          })}
-        </div>
-      </div>
+      )}
     </div>
   );
 };

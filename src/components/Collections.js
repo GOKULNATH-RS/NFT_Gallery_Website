@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { NFTcollections } from "../common/MockData";
 import CollectionsCard from "./CollectionsCard";
 import { Link } from "react-router-dom";
 import Offline from "./Offline";
 import useOnline from "../Hooks/useOnline";
 import { useEffect } from "react";
+import Loading from "./Loading";
 
 const Collections = () => {
   const [SearchText, setSearchText] = useState("");
   const [FilteredCollections, setFilteredCollections] = useState([]);
   const [CollectionsData, setCollectionsData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const isOnline = useOnline();
 
@@ -19,6 +20,7 @@ const Collections = () => {
       .then((data) => {
         setFilteredCollections(data);
         setCollectionsData(data);
+        setIsLoading(false);
       })
       .catch((err) => {
         console.log("ERROR WHILE FETCHING COLLECTIONS" || err.message);
@@ -62,15 +64,19 @@ const Collections = () => {
             </button>
           </div>
         </div>
-        <div className="flex gap-4 flex-wrap w-full justify-center">
-          {FilteredCollections.map((item) => {
-            return (
-              <Link to={`/collections/${item._id}`} key={item._id}>
-                <CollectionsCard {...item} />
-              </Link>
-            );
-          })}
-        </div>
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <div className="flex gap-4 flex-wrap w-full justify-center">
+            {FilteredCollections.map((item) => {
+              return (
+                <Link to={`/collections/${item._id}`} key={item._id}>
+                  <CollectionsCard {...item} />
+                </Link>
+              );
+            })}
+          </div>
+        )}
       </div>
     </section>
   );
