@@ -72,6 +72,22 @@ const NftInfo = () => {
     collectionLogoUrl,
   } = NftDetails;
 
+  const handleAddToSaved = (item) => async () => {
+    const res = await fetch("http://localhost:5000/api/save", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        userEmail: "test@gmail.com",
+        nft: item,
+      }),
+    });
+
+    const status = await res.json();
+    console.log("res status", status);
+  };
+
   return (
     <div className="bg-PrimaryDark w-full min-h-screen">
       <nav className="h-20 px-8 Header flex justify-between items-center sticky top-0 z-10">
@@ -85,7 +101,7 @@ const NftInfo = () => {
             </button> 
           */}
           <Link
-            to="/"
+            to="/saved"
             className="flex w-max h-8 relative justify-center items-center"
           >
             <IconBookmark fill={false} />
@@ -166,7 +182,7 @@ const NftInfo = () => {
                 </Link>
                 <button
                   className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor"
-                  // onClick={handleAddToSaved(FilteredNFTData[0])}
+                  onClick={handleAddToSaved(NftDetails)}
                 >
                   Save
                 </button>

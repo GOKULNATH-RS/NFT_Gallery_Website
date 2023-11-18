@@ -169,6 +169,7 @@ app.get("/api", (req, res) => {
 require("./Routes/collections.routes")(app);
 require("./Routes/users.routes")(app);
 require("./Routes/nfts.routes")(app);
+require("./Routes/saved.routes")(app);
 // app.get("/collection/:id" , (req,res) => {
 //     const id = req.params.id ;
 

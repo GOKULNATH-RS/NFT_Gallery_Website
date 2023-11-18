@@ -6,4 +6,5 @@ module.exports = (app) => {
   app.get("/api/users", userController.fetchAll);
   app.get("/api/users/:id", userController.fetchOne);
   app.delete("/api/users/:id", userController.deleteOne);
+  // app.post("/api/users/cart/create", userController.addToCart);
 };

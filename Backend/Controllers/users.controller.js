@@ -1,4 +1,5 @@
 const userModel = require("../Models/users.model");
+const SavedModel = require("../Models/saved.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
@@ -6,7 +7,6 @@ const jwt = require("jsonwebtoken");
 exports.register = (req, res) => {
   const { displayName, userName, email, password } = req.body;
 
-  console.log(req.body);
   const newUser = new userModel({
     displayName,
     userName,
@@ -26,6 +26,24 @@ exports.register = (req, res) => {
             if (!data) {
               res.status(404).json({ message: "Bad Request" });
             }
+
+            const newSaved = new SavedModel({
+              userEmail: email,
+              userName: userName,
+              items: [],
+            });
+
+            newSaved
+              .save()
+              .then((data) => {
+                if (!data) {
+                  res.status(404).json({ message: "Bad Request" });
+                }
+              })
+              .catch((error) => {
+                console.log(error);
+              });
+
             res.status(200).json("user created successfully");
           })
           .catch((err) => {
@@ -41,7 +59,6 @@ exports.register = (req, res) => {
 // LOGIN USER
 exports.login = (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
   userModel
     .findOne({ email })
     .then((data) => {
@@ -77,7 +94,7 @@ exports.fetchAll = (req, res) => {
     if (!data) {
       res.statud(404).json({ message: "Data not found" });
     }
-    res.status(200).send(data);
+    res.send(data);
   });
 };
 
@@ -91,7 +108,7 @@ exports.fetchOne = (req, res) => {
       if (!data) {
         res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({
@@ -110,9 +127,38 @@ exports.deleteOne = (req, res) => {
       if (!data) {
         res.status(404).json({ message: "Data not found" });
       }
-      res.status(200).send(data);
+      res.send(data);
     })
     .catch((err) => {
       res.status(500).json({ message: err.message || "Server Error" });
     });
+};
+
+exports.fetchSaved = (req, res) => {
+  const { userEmail } = req.body;
+
+  SavedModel.findOne({ userEmail }).then((data) => {
+    if (!data) {
+      res.status(404).json({ message: "Data not found" });
+    }
+    console.log(data);
+    res.send(data);
+  });
+};
+
+exports.addToSaved = (req, res) => {
+  const { userEmail, nft } = req.body;
+
+  SavedModel.findOne({ userEmail }).then((data) => {
+    if (!data) {
+      res.status(404).json({ message: "Data not found" });
+    }
+
+    if (data.items.includes(nft)) {
+      res.json({ message: "NFT already saved", exists: true });
+    }
+    data.items.push(nft);
+    data.save();
+    res.send(data);
+  });
 };
