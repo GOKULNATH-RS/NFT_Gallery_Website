@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import NftCards from "./NftCards";
 import Loading from "./Loading";
+import Error404 from "./Error404";
 
 const CollectionsInfo = () => {
   const [ThisCollection, setThisCollection] = useState({});
@@ -13,13 +14,20 @@ const CollectionsInfo = () => {
 
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/api/collection/${id}`)
+      fetch(`http://localhost:5000/api/collection/${id}`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        authorization: `JWT ${localStorage.getItem("accessToken")}`,
+      })
         .then((res) => res.json())
         .then((data) => {
           setThisCollection(data);
           setIsLoading(false);
         });
     } catch (error) {
+      <Error404 />;
       console.log(error.message || "Server Error");
     }
   }, []);

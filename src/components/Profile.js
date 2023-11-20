@@ -1,15 +1,17 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const Profile = () => {
+  const { displayName, userName, email } = useSelector((state) => state.user);
 
-
-    const {name} = useParams();
   return (
-    <div className='section'>
-      {name}
+    <div className="section">
+      <div>{displayName}</div>
+      <div>{userName}</div>
+      <div>{email}</div>
     </div>
-  )
-}
+  );
+};
 
-export default Profile
+export default Profile;

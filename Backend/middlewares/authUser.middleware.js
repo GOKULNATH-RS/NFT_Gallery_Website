@@ -2,6 +2,7 @@ const jwt = require("jsonwebtoken");
 const userModel = require("../Models/users.model");
 
 const authUser = (req, res, next) => {
+  console.log("Auth middleware");
   if (
     req.headers &&
     req.headers.authorization &&
@@ -21,8 +22,6 @@ const authUser = (req, res, next) => {
             if (!user) {
               res.status(401).json({ message: "Invalid User" });
             }
-            req.user = user;
-            next();
           })
           .catch((err) => {
             res.status(500).json({ message: err.message || "Server Error" });
@@ -31,7 +30,6 @@ const authUser = (req, res, next) => {
     );
   } else {
     res.status(403).json({ message: "Token not present" });
-    next();
   }
 
   next();

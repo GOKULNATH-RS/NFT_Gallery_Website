@@ -6,9 +6,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [displayName, setDisplayName] = useState("");
   const [userName, setUserName] = useState("");
+  const navigate = useNavigate();
 
   const handleRegisterUser = async (e) => {
-    e.preventdefault();
+    e.preventDefault();
     const response = await fetch("http://localhost:5000/api/register", {
       method: "POST",
       body: JSON.stringify({
@@ -22,9 +23,15 @@ const Register = () => {
       },
     });
 
-    const data = await response.json().then(() => {
-      console.log(data);
-    });
+    const data = await response.json();
+
+    console.log(data);
+    localStorage.setItem("accessToken", data.accessToken);
+    localStorage.setItem("userEmail", data.email);
+
+    if (response.status === 200) {
+      navigate("/");
+    }
   };
 
   return (
@@ -39,10 +46,7 @@ const Register = () => {
           <h2>Register</h2>
         </div>
         <div>
-          <form
-            className="flex flex-col gap-8"
-            onSubmit={(e) => handleRegisterUser(e)}
-          >
+          <form className="flex flex-col gap-8">
             <div className="flex flex-col gap-3">
               <div className="flex flex-col gap-1">
                 <label className="text-md ">Display Name</label>
@@ -94,6 +98,7 @@ const Register = () => {
               <button
                 className="bg-transparent border-[1px] border-opacity-20 border-white hover:border-opacity-70 text-white p-2 px-4 rounded-lg w-96"
                 type="submit"
+                onClick={(e) => handleRegisterUser(e)}
               >
                 Register
               </button>

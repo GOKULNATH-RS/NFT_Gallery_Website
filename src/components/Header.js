@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import IconBookmark from "../assets/icons/iconBookmark.js";
 import { Link } from "react-router-dom";
@@ -7,16 +8,17 @@ import Logo from "../assets/Logo.png";
 
 const Header = () => {
   const isOnline = useOnline();
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const SavedItems = useSelector((state) => state.saved.items);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   let CurrentUser = "GOKULNATH RS";
+
   return (
     <nav className="w-full shadow-secondary h-20 Header flex justify-between items-center gap-4 px-8 fixed top-0 z-10">
-      <div className="text-white">
+      <Link to="/" className="text-white">
         <img src={Logo} alt="logo" className="h-14 w-max lg:h-16" />
-      </div>
+      </Link>
       <ul className="flex gap-5 lg:gap-8 max-sm:hidden">
         {[
           { name: "NFTs", url: "/" },

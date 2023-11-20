@@ -6,8 +6,8 @@ import IconEye from "../assets/icons/iconEye";
 import NftCards from "./NftCards";
 import useOnline from "../Hooks/useOnline";
 import Offline from "./Offline";
-// import { useDispatch } from "react-redux";
-// import { addToSaved } from "../redux/SavedSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addToSaved } from "../redux/SavedSlice";
 import IconBookmark from "../assets/icons/iconBookmark";
 import Loading from "./Loading";
 
@@ -17,6 +17,9 @@ const NftInfo = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [Collections, setCollections] = useState([]);
   const [NftDetails, setNftDetails] = useState([]);
+
+  const SavedItems = useSelector((state) => state.saved.items);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(`http://localhost:5000/api/nft/${_id}`)
@@ -43,13 +46,6 @@ const NftInfo = () => {
         });
     }, [NftDetails]);
   } catch (error) {}
-
-  // const SavedItems = useSelector((state) => state.saved.items);
-  // const dispatch = useDispatch();
-
-  // function handleAddToSaved(item) {
-  //   dispatch(addToSaved(item));
-  // }
 
   if (!isOnline) {
     return <Offline />;
@@ -85,7 +81,11 @@ const NftInfo = () => {
     });
 
     const status = await res.json();
-    console.log("res status", status);
+
+    if (res.status === 200) {
+      dispatch(addToSaved(item));
+      console.log("Added to Saved");
+    }
   };
 
   return (
@@ -95,24 +95,24 @@ const NftInfo = () => {
           Back
         </Link>
         <div className=" flex gap-2 items-center">
-          {/* <button className='flex w-6 h-10 relative justify-center items-center'>
-                  <IconBookmark />
-                  <span className='h-3 lg:h-4 w-3 lg:w-4 bg-blue-700 duration-100 rounded-[100%] p-[2px] text-[10px] text-white flex justify-center items-center absolute top-1 lg:top-0 right-0 font-bold'>{SavedItems.length}</span>
-            </button> 
-          */}
+          {/* <button className="flex w-6 h-10 relative justify-center items-center">
+            <IconBookmark />
+            <span className="h-3 lg:h-4 w-3 lg:w-4 bg-blue-700 duration-100 rounded-[100%] p-[2px] text-[10px] text-white flex justify-center items-center absolute top-1 lg:top-0 right-0 font-bold">
+              {SavedItems.length}
+            </span>
+          </button> */}
+
           <Link
             to="/saved"
             className="flex w-max h-8 relative justify-center items-center"
           >
-            <IconBookmark fill={false} />
+            <IconBookmark fill={!SavedItems.length ? false : true} />
             <span
               className={`h-3 lg:h-4 w-3 lg:w-4 ${
-                !(/*SavedItems.length*/ false)
-                  ? "text-blue-400"
-                  : "text-PrimaryDark"
+                !SavedItems.length ? "text-blue-400 " : "text-PrimaryDark "
               }   duration-100 rounded-[100%] p-[2px]  text-[12px]  flex justify-center items-center absolute lg:top-[7px] top-[9px] font-bold`}
             >
-              {/*SavedItems.length*/}0
+              {SavedItems.length}
             </span>
           </Link>
           <button>
@@ -181,7 +181,7 @@ const NftInfo = () => {
                   See Collection
                 </Link>
                 <button
-                  className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor"
+                  className="Border h-14 py-4 w-full flex-1 text-Primary text-xl rounded-xl bg-HeaderColor active:bg-[#080d2e] active:border-opacity-[0.6]"
                   onClick={handleAddToSaved(NftDetails)}
                 >
                   Save

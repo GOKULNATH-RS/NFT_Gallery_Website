@@ -44,7 +44,7 @@ exports.register = (req, res) => {
                 console.log(error);
               });
 
-            res.status(200).json("user created successfully");
+            res.send(data);
           })
           .catch((err) => {
             res.status(500).json({ message: err.message || "Server Error" });
@@ -75,6 +75,8 @@ exports.login = (req, res) => {
           res.send({
             user: {
               id: data._id,
+              displayName: data.displayName,
+              userName: data.userName,
               email: data.email,
               password: data.password,
             },
@@ -141,7 +143,6 @@ exports.fetchSaved = (req, res) => {
     if (!data) {
       res.status(404).json({ message: "Data not found" });
     }
-    console.log(data);
     res.send(data);
   });
 };
@@ -159,6 +160,22 @@ exports.addToSaved = (req, res) => {
     }
     data.items.push(nft);
     data.save();
+    res.send(data);
+  });
+};
+
+exports.clearSaved = (req, res) => {
+  const { userEmail } = req.body;
+
+  SavedModel.findOneAndUpdate(
+    { userEmail },
+    {
+      $set: { items: [] },
+    }
+  ).then((data) => {
+    if (!data) {
+      res.status(404).json({ message: "Data not found" });
+    }
     res.send(data);
   });
 };

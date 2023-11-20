@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { data } from "../common/MockData";
+// import { data } from "../common/MockData";
 import NftCards from "./NftCards";
 import { Link } from "react-router-dom";
 import Shimmer from "./Shimmer";
@@ -7,12 +7,16 @@ import useOnline from "../Hooks/useOnline";
 import Offline from "./Offline";
 import MostViewedNFTs from "./MostViewedNFTs";
 import PriceLowToHigh from "./PriceLowToHigh";
+import { useDispatch } from "react-redux";
+import { addToSaved } from "../redux/SavedSlice";
 
 const NFTs = () => {
   const [SearchText, setSearchText] = useState("");
   const [NftData, setNftData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [FilteredNFTs, setFilteredNFTs] = useState([]);
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch("http://localhost:5000/api/nft")

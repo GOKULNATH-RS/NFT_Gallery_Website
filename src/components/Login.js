@@ -1,13 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useState, useNavigate } from "react";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { setLoggedIn, setUser } from "../redux/userSlice";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const handleSetLoggedIn = (isLoggedIn, user) => {
+    dispatch(setLoggedIn({ isLoggedIn }));
+    dispatch(
+      setUser({
+        displayName: user.displayName,
+        userName: user.userName,
+        email: user.email,
+      })
+    );
+  };
 
   const handleLoginUser = async (e) => {
     e.preventDefault();
+
     const response = await fetch("http://localhost:5000/api/login", {
       method: "POST",
       body: JSON.stringify({ email: email, password: password }),
@@ -16,9 +32,15 @@ const Login = () => {
       },
     });
 
-    const data = await response.json().then(() => {
-      console.log(data);
-    });
+    let data = await response.json();
+
+    localStorage.setItem("accessToken", data.accessToken);
+    localStorage.setItem("userEmail", data.user.email);
+
+    if (response.status === 200) {
+      await handleSetLoggedIn(true, data.user);
+      navigate("/");
+    }
   };
 
   return (
@@ -34,6 +56,7 @@ const Login = () => {
         </div>
         <div>
           <form
+            autocomplete
             className="flex flex-col gap-8"
             onSubmit={(e) => handleLoginUser(e)}
           >
