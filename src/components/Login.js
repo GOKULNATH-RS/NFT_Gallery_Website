@@ -24,13 +24,16 @@ const Login = () => {
   const handleLoginUser = async (e) => {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/api/login", {
-      method: "POST",
-      body: JSON.stringify({ email: email, password: password }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/login`,
+      {
+        method: "POST",
+        body: JSON.stringify({ email: email, password: password }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     let data = await response.json();
 
@@ -56,7 +59,6 @@ const Login = () => {
         </div>
         <div>
           <form
-            autocomplete
             className="flex flex-col gap-8"
             onSubmit={(e) => handleLoginUser(e)}
           >

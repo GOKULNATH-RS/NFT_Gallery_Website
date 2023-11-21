@@ -15,7 +15,7 @@ const Collections = () => {
   const isOnline = useOnline();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/collection")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/collection`)
       .then((res) => res.json())
       .then((data) => {
         setFilteredCollections(data);

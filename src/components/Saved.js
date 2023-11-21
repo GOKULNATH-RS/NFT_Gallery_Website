@@ -10,36 +10,42 @@ const Saved = () => {
   const [isLoading, setIsLoading] = useState(true);
   const dispatch = useDispatch();
 
+  const userEmail = localStorage.getItem("userEmail");
   const SavedsNFTs = async () => {
-    const userEmail = localStorage.getItem("userEmail");
-    const res = await fetch("http://localhost:5000/api/saved", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userEmail: { userEmail },
-      }),
-    });
+    try {
+      const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/saved`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userEmail: userEmail,
+        }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    setSaveNFTs(data.items);
-    setIsLoading(false);
+      setSaveNFTs(data.items);
+      setIsLoading(false);
+    } catch (error) {
+      console.log("Error while fetching");
+    }
   };
 
   const handleClearSaved = async () => {
     setIsLoading(true);
-    console.log("clear");
-    const res = await fetch("http://localhost:5000/api/saved/clear", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        userEmail: "test@gmail.com",
-      }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/saved/clear`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          userEmail: userEmail,
+        }),
+      }
+    );
 
     const data = await res.json();
     setSaveNFTs(data.items);

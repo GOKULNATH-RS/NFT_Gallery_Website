@@ -19,7 +19,7 @@ const NFTs = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/nft")
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/nft`)
       .then((res) => res.json())
       .then((data) => {
         setNftData(data);

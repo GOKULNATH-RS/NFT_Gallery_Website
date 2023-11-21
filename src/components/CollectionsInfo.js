@@ -14,7 +14,7 @@ const CollectionsInfo = () => {
 
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/api/collection/${id}`, {
+      fetch(`${process.env.REACT_APP_SERVER_URL}/api/collection/${id}`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const CollectionsInfo = () => {
 
   useEffect(() => {
     try {
-      fetch(`http://localhost:5000/api/nft`)
+      fetch(`${process.env.REACT_APP_SERVER_URL}/api/nft`)
         .then((res) => res.json())
         .then((data) => {
           setCollections(data);

@@ -10,18 +10,21 @@ const Register = () => {
 
   const handleRegisterUser = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/register", {
-      method: "POST",
-      body: JSON.stringify({
-        displayName: displayName,
-        userName: userName,
-        email: email,
-        password: password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${process.env.REACT_APP_SERVER_URL}/api/register`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          displayName: displayName,
+          userName: userName,
+          email: email,
+          password: password,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
 

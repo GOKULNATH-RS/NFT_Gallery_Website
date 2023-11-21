@@ -22,7 +22,7 @@ const NftInfo = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/nft/${_id}`)
+    fetch(`${process.env.REACT_APP_SERVER_URL}/api/nft/${_id}`)
       .then((res) => res.json())
       .then((data) => {
         setNftDetails(data);
@@ -35,7 +35,7 @@ const NftInfo = () => {
 
   try {
     useEffect(() => {
-      fetch(`http://localhost:5000/api/nft`)
+      fetch(`${process.env.REACT_APP_SERVER_URL}/api/nft`)
         .then((res) => res.json())
         .then((data) => {
           setCollections(data);
@@ -68,14 +68,15 @@ const NftInfo = () => {
     collectionLogoUrl,
   } = NftDetails;
 
+  const userEmail = localStorage.getItem("userEmail");
   const handleAddToSaved = (item) => async () => {
-    const res = await fetch("http://localhost:5000/api/save", {
+    const res = await fetch(`${process.env.REACT_APP_SERVER_URL}/api/save`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userEmail: "test@gmail.com",
+        userEmail: userEmail,
         nft: item,
       }),
     });
