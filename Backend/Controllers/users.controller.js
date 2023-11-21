@@ -138,13 +138,16 @@ exports.deleteOne = (req, res) => {
 
 exports.fetchSaved = (req, res) => {
   const { userEmail } = req.body;
-
-  SavedModel.findOne({ userEmail }).then((data) => {
-    if (!data) {
-      res.status(404).json({ message: "Data not found" });
-    }
-    res.send(data);
-  });
+  SavedModel.findOne({ userEmail })
+    .then((data) => {
+      if (!data) {
+        res.status(404).json({ message: "Data not found" });
+      }
+      res.send(data);
+    })
+    .catch((err) => {
+      console.log(err.message);
+    });
 };
 
 exports.addToSaved = (req, res) => {
@@ -159,6 +162,7 @@ exports.addToSaved = (req, res) => {
       res.json({ message: "NFT already saved", exists: true });
     }
     data.items.push(nft);
+
     data.save();
     res.send(data);
   });
