@@ -1,6 +1,6 @@
 # NFT GALLERY
 
-#### MERN Stack Application 
+#### MERN Stack Application
 
 `Search Functionality`<br>
 `Routing`<br>

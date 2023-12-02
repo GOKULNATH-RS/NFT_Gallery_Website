@@ -68,7 +68,7 @@ exports.fetchOne = (req, res) => {
   try {
     collectionsModel.findById(_id).then((data) => {
       if (!data) {
-        res.status(404).json({ message: "Data not found" });
+        return res.status(404).json({ message: "Data not found" });
       }
       console.log(data);
       res.send(data);

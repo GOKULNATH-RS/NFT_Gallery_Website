@@ -19,6 +19,7 @@ const NftInfo = () => {
   const [NftDetails, setNftDetails] = useState([]);
 
   const SavedItems = useSelector((state) => state.saved.items);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,6 +51,8 @@ const NftInfo = () => {
   if (!isOnline) {
     return <Offline />;
   }
+
+  let CurrentUser = "GOKULNATH";
 
   const NftData = Collections.filter((nft) => {
     return (
@@ -95,36 +98,37 @@ const NftInfo = () => {
         <Link to="/" className="text-white">
           Back
         </Link>
-        <div className=" flex gap-2 items-center">
-          {/* <button className="flex w-6 h-10 relative justify-center items-center">
-            <IconBookmark />
-            <span className="h-3 lg:h-4 w-3 lg:w-4 bg-blue-700 duration-100 rounded-[100%] p-[2px] text-[10px] text-white flex justify-center items-center absolute top-1 lg:top-0 right-0 font-bold">
-              {SavedItems.length}
-            </span>
-          </button> */}
-
-          <Link
-            to="/saved"
-            className="flex w-max h-8 relative justify-center items-center"
-          >
-            <IconBookmark fill={!SavedItems.length ? false : true} />
-            <span
-              className={`h-3 lg:h-4 w-3 lg:w-4 ${
-                !SavedItems.length ? "text-blue-400 " : "text-PrimaryDark "
-              }   duration-100 rounded-[100%] p-[2px]  text-[12px]  flex justify-center items-center absolute lg:top-[7px] top-[9px] font-bold`}
-            >
-              {SavedItems.length}
-            </span>
-          </Link>
-          <button>
-            <img
-              className={`h-10 lg:h-12 w-10 lg:w-12 rounded-full bg-center border-2 ${
-                isOnline ? "border-emerald-500" : "border-red-600"
-              }`}
-              src="https://i.pinimg.com/564x/d7/f3/2e/d7f32e6c302205c45f082e6de141ef00.jpg"
-              alt="profile"
-            />
-          </button>
+        <div className="flex gap-2 items-center">
+          {isLoggedIn ? (
+            <>
+              <Link
+                to="/saved"
+                className="flex w-max h-8 relative justify-center items-center"
+              >
+                <IconBookmark fill={SavedItems.length} />
+                <span
+                  className={`h-3 lg:h-4 w-3 lg:w-4 ${
+                    !SavedItems.length ? "text-blue-400" : "text-PrimaryDark"
+                  }   duration-100 rounded-[100%] p-[2px]  text-[12px]  flex justify-center items-center absolute lg:top-[7px] top-[9px] font-bold`}
+                >
+                  {SavedItems.length}
+                </span>
+              </Link>
+              <Link to={`/profile/${CurrentUser}`}>
+                <img
+                  className={`h-10 lg:h-12 w-10 lg:w-12 rounded-full bg-center border-2 ${
+                    isOnline ? "border-emerald-500" : "border-red-600"
+                  }`}
+                  src="https://i.pinimg.com/564x/d7/f3/2e/d7f32e6c302205c45f082e6de141ef00.jpg"
+                  alt="profile"
+                />
+              </Link>
+            </>
+          ) : (
+            <Link to="/login" className="text-white">
+              Login
+            </Link>
+          )}
         </div>
       </nav>
 
