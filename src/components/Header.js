@@ -17,7 +17,13 @@ const Header = () => {
   return (
     <nav className="w-full shadow-secondary h-20 Header flex justify-between items-center gap-4 px-8 fixed top-0 z-10">
       <Link to="/" className="text-white">
-        <img src={Logo} alt="logo" className="h-14 w-max lg:h-16" />
+        <div className="flex items-center gap-1 ">
+          <img src={Logo} alt="logo" className="h-14 w-max lg:h-16" />
+          <p className="font-bold flex flex-col">
+            NFTs
+            <span className="text-blue-500 leading-3">Gallery</span>
+          </p>
+        </div>
       </Link>
       <ul className="flex gap-5 lg:gap-8 max-sm:hidden">
         {[
