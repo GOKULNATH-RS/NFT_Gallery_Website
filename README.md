@@ -37,6 +37,6 @@ Unlock additional features and personalize your experience by creating an accoun
 ### Prerequisites
 - A modern web browser (Google Chrome, Mozilla Firefox, Safari, etc.)
 - Internet connection
-- 
+
 ### Installation
 No installation required! Simply visit [NFTs Gallery](https://nftsgallery.netlify.app/) in your preferred web browser and start exploring the world of NFTs.
