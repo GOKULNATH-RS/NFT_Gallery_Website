@@ -22,6 +22,7 @@ const authUser = (req, res, next) => {
             if (!user) {
               res.status(401).json({ message: "Invalid User" });
             }
+            next();
           })
           .catch((err) => {
             res.status(500).json({ message: err.message || "Server Error" });
