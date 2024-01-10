@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CollectionsCard from "./CollectionsCard";
 import { Link } from "react-router-dom";
 import Offline from "./Offline";
 import useOnline from "../Hooks/useOnline";
-import { useEffect } from "react";
 import Loading from "./Loading";
 
 const Collections = () => {
@@ -23,7 +22,7 @@ const Collections = () => {
         setIsLoading(false);
       })
       .catch((err) => {
-        console.log("ERROR WHILE FETCHING COLLECTIONS" || err.message);
+        console.log(err.message || "ERROR WHILE FETCHING COLLECTIONS");
       });
   }, []);
 
