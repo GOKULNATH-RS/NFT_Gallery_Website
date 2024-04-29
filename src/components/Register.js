@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { setLoggedIn, setUser } from "../redux/userSlice";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -7,6 +9,19 @@ const Register = () => {
   const [displayName, setDisplayName] = useState("");
   const [userName, setUserName] = useState("");
   const navigate = useNavigate();
+
+  const dispatch = useDispatch();
+
+  const handleSetLoggedIn = (isLoggedIn, user) => {
+    dispatch(setLoggedIn({ isLoggedIn }));
+    dispatch(
+      setUser({
+        displayName: user.displayName,
+        userName: user.userName,
+        email: user.email,
+      })
+    );
+  };
 
   const handleRegisterUser = async (e) => {
     e.preventDefault();
@@ -33,6 +48,7 @@ const Register = () => {
     localStorage.setItem("userEmail", data.email);
 
     if (response.status === 200) {
+      await handleSetLoggedIn(true, data);
       navigate("/");
     }
   };

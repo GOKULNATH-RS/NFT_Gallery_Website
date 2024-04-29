@@ -37,8 +37,9 @@ const Login = () => {
 
     let data = await response.json();
 
+    console.log(data);
     localStorage.setItem("accessToken", data.accessToken);
-    localStorage.setItem("userEmail", data.user.email);
+    localStorage.setItem("userEmail", data?.user.email);
 
     if (response.status === 200) {
       await handleSetLoggedIn(true, data.user);
