@@ -2,6 +2,7 @@
 
 Welcome to NFTs Gallery, your ultimate destination for exploring the fascinating world of Non-Fungible Tokens (NFTs). Our platform is crafted with cutting-edge technologies to provide a seamless and immersive experience. Whether you're a seasoned collector or a newcomer to the NFT space, NFTs Gallery is designed to make your journey enjoyable.
 
+
 ## Features
 
 ### 1. Search NFTs 🔍
