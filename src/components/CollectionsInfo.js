@@ -9,6 +9,7 @@ const CollectionsInfo = () => {
   const [ThisCollection, setThisCollection] = useState({});
   const [Collections, setCollections] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isAuthenticated, setIsAuthenticated] = useState(true);
 
   const { id } = useParams();
 
@@ -18,13 +19,21 @@ const CollectionsInfo = () => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
+          authorization: `JWT ${localStorage.getItem("accessToken")}`,
         },
-        authorization: `JWT ${localStorage.getItem("accessToken")}`,
       })
         .then((res) => res.json())
         .then((data) => {
-          setThisCollection(data);
-          setIsLoading(false);
+          console.log("Data", data);
+          if (data.message === "Token not present") {
+            console.log("Not Auth");
+            setIsLoading(false);
+            setIsAuthenticated(false);
+          } else {
+            setIsAuthenticated(true);
+            setThisCollection(data);
+            setIsLoading(false);
+          }
         });
     } catch (error) {
       <Error404 />;
@@ -81,6 +90,8 @@ const CollectionsInfo = () => {
 
       {isLoading ? (
         <Loading />
+      ) : !isAuthenticated ? (
+        <div>Not Auth</div>
       ) : (
         <div>
           <div className="h-[40vh] max-sm:h-[20vh] w-full overflow-hidden flex flex-col justify-center">

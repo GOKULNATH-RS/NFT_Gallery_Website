@@ -43,8 +43,17 @@ exports.register = (req, res) => {
               .catch((error) => {
                 console.log(error);
               });
-
-            res.send(data);
+            let token = jwt.sign({ id: data._id }, process.env.JWT_SECRET);
+            res.send({
+              user: {
+                id: data._id,
+                displayName: data.displayName,
+                userName: data.userName,
+                email: data.email,
+                password: data.password,
+              },
+              accessToken: token,
+            });
           })
           .catch((err) => {
             res.status(500).json({ message: err.message || "Server Error" });

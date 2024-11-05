@@ -64,14 +64,15 @@ exports.updateOne = (req, res) => {
 exports.fetchOne = (req, res) => {
   const _id = req.params.id;
 
-  console.log("fetch One");
   try {
     collectionsModel.findById(_id).then((data) => {
       if (!data) {
+        console.log("No data ");
         return res.status(404).json({ message: "Data not found" });
+      } else {
+        console.log(data);
+        res.status(200).json(data);
       }
-      console.log(data);
-      res.send(data);
     });
   } catch (error) {
     console.log(error.message);

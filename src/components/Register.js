@@ -44,6 +44,7 @@ const Register = () => {
     const data = await response.json();
 
     console.log(data);
+
     localStorage.setItem("accessToken", data.accessToken);
     localStorage.setItem("userEmail", data.email);
 
